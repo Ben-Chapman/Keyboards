@@ -15,7 +15,7 @@
    version="1.1"
    id="svg2403"
    sodipodi:docname="spacer.svg"
-   inkscape:version="0.92.1 r15371">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <metadata
      id="metadata2409">
     <rdf:RDF>
@@ -24,6 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -38,15 +39,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3000"
-     inkscape:window-height="1936"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
      id="namedview2405"
      showgrid="false"
-     inkscape:zoom="3.3932249"
-     inkscape:cx="683.85912"
-     inkscape:cy="455.4808"
-     inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:zoom="1.5862832"
+     inkscape:cx="412.66574"
+     inkscape:cy="155.54719"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2403" />
   <polygon
