@@ -7,9 +7,9 @@
 #define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x0000
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    Ben-Chapman
-#define PRODUCT         keyboard
-#define DESCRIPTION     Keyboard
+#define MANUFACTURER    Ben Chapman
+#define PRODUCT         Televideo2K
+#define DESCRIPTION     Televideo Year 2000+
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -45,13 +45,18 @@
 /* prevent stuck modifiers */
 #define PREVENT_STUCK_MODIFIERS
 
+/* RGB Backlighting configuration */
 #define RGB_DI_PIN B1
 #ifdef RGB_DI_PIN
 #define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 50
+#define RGBLED_NUM 51
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
+#define RGBLIGHT_SLEEP
+#define RGBLIGHT_EFFECT_KNIGHT_LENGTH 5
+#define RGBLIGHT_EFFECT_SNAKE_LENGTH 6
+
 #endif
 
 #endif
