@@ -16,6 +16,7 @@ elif [[ $1 == 'help' || $1 == "" ]]; then
     echo -e "$0 flash  :  Compile firmware and proceed to flash to a Teensy\n"
     exit 0
 elif [[ $1 == 'flash' ]]; then
+    make clean &&
     make televideo2k:default:teensy
 else
     # Now compile
