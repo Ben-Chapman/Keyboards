@@ -24,11 +24,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID   0x0000
 #define DEVICE_VER   0x0001
 #define MANUFACTURER Ben Chapman
-#define PRODUCT      IBM_ModelM_2k
+#define PRODUCT      IBM Model M 2k
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 8
+#define MATRIX_COLS 16
 
 /*
  * Keyboard Matrix Assignments
@@ -40,17 +40,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { D0, D5 }
-#define MATRIX_COL_PINS { F1, F0, B0 }
+#define MATRIX_ROW_PINS { E7, B0, B1, B2, B3, B4, B5, B6 }
+#define MATRIX_COL_PINS { C7, C6, C5, C4, C3, C2, C1, C0, E1, E0, D7, D6, D5, D4, D3, D2 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
-#define DIODE_DIRECTION COL2ROW
+#define DIODE_DIRECTION ROW2COL
 
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
  */
-#define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
+// #define SOFT_SERIAL_PIN D0  // or D1, D2, D3, E6
 
 //#define BACKLIGHT_PIN B7
 //#define BACKLIGHT_LEVELS 3
@@ -92,6 +92,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
+
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
