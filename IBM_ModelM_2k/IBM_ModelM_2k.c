@@ -16,14 +16,25 @@
 
 #include "IBM_ModelM_2k.h"
 
-void keyboard_pre_init_kb(void) {
-  /* Setting status LEDs pins to output and +5V (off) */
-  setPinOutput(B4);
-  setPinOutput(B5);
-  setPinOutput(B6);
-  writePinHigh(B4);
-  writePinHigh(B5);
-  writePinHigh(B6);
+// void keyboard_pre_init_kb(void) {
+//   /* Setting status LEDs pins to output and +5V (off) */
+//     setPinOutput(F0);
+//     setPinOutput(F1);
+//     setPinOutput(F1);
+//     writePinHigh(F0);
+//     writePinHigh(F1);
+//     writePinHigh(F2);
+// }
+
+void keyboard_pre_init_user(void) {
+  // Call the keyboard pre init code.
+
+  // Set our LED pins as output
+  setPinOutput(F0);
+  setPinOutput(F1);
+  setPinOutput(F2);
+//   writePinHigh(F0);
+//   writePinLow(F1);
 }
 
 void matrix_init_kb(void) {
@@ -47,22 +58,20 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
   return process_record_user(keycode, record);
 }
 
-void led_set_kb(uint8_t usb_led) {
-  if (usb_led & (1<<USB_LED_NUM_LOCK)) {
-    writePinLow(B4);
-  } else {
-    writePinHigh(B4);
-  }
-  if (usb_led & (1<<USB_LED_CAPS_LOCK)) {
-    writePinLow(B6);
-  } else {
-    writePinHigh(B6);
-  }
-  if (usb_led & (1<<USB_LED_SCROLL_LOCK)) {
-    writePinLow(B5);
-  } else {
-    writePinHigh(B5);
-  }
 
-  led_set_user(usb_led);
+bool led_update_kb(led_t led_state) {
+    bool res = led_update_user(led_state);
+    if(res) {
+        // writePin sets the pin high for 1 and low for 0.
+        // In this example the pins are inverted, setting
+        // it low/0 turns it on, and high/1 turns the LED off.
+        // This behavior depends on whether the LED is between the pin
+        // and VCC or the pin and GND.
+        writePin(F0, led_state.num_lock);
+        writePin(F1, led_state.caps_lock);
+        writePin(F2, led_state.scroll_lock);
+        // writePin(B3, !led_state.compose);
+        // writePin(B4, !led_state.kana);
+    }
+    return res;
 }
