@@ -16,25 +16,22 @@
 
 #include "IBM_ModelM_2k.h"
 
-// void keyboard_pre_init_kb(void) {
-//   /* Setting status LEDs pins to output and +5V (off) */
-//     setPinOutput(F0);
-//     setPinOutput(F1);
-//     setPinOutput(F1);
-//     writePinHigh(F0);
-//     writePinHigh(F1);
-//     writePinHigh(F2);
-// }
-
 void keyboard_pre_init_user(void) {
   // Call the keyboard pre init code.
 
   // Set our LED pins as output
-  setPinOutput(F0);
-  setPinOutput(F1);
-  setPinOutput(F2);
-//   writePinHigh(F0);
-//   writePinLow(F1);
+//   for (int i=0, i<4, i++) {
+//       setPinOutput(F + i);
+//   }
+  setPinOutput(F0);  // Num Lock
+  setPinOutput(F1);  // Caps Lock
+  setPinOutput(F2);  // Scroll Lock
+  setPinOutput(F3);  // Ground
+
+  writePinLow(F0);
+  writePinLow(F1);
+  writePinLow(F2);
+  writePinHigh(F3);
 }
 
 void matrix_init_kb(void) {
@@ -58,7 +55,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
   return process_record_user(keycode, record);
 }
 
-
+// https://docs.qmk.fm/#/custom_quantum_functions?id=example-led_update_kb-implementation
 bool led_update_kb(led_t led_state) {
     bool res = led_update_user(led_state);
     if(res) {
@@ -67,11 +64,12 @@ bool led_update_kb(led_t led_state) {
         // it low/0 turns it on, and high/1 turns the LED off.
         // This behavior depends on whether the LED is between the pin
         // and VCC or the pin and GND.
-        writePin(F0, led_state.num_lock);
-        writePin(F1, led_state.caps_lock);
-        writePin(F2, led_state.scroll_lock);
-        // writePin(B3, !led_state.compose);
-        // writePin(B4, !led_state.kana);
+        // writePinLow(F3);
+        writePin(F0, !led_state.num_lock);
+        writePin(F1, !led_state.caps_lock);
+        writePin(F2, !led_state.scroll_lock);
+
     }
     return res;
 }
+
