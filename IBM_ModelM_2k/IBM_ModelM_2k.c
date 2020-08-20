@@ -23,9 +23,9 @@ void keyboard_pre_init_user(void) {
 //   for (int i=0, i<4, i++) {
 //       setPinOutput(F + i);
 //   }
-  setPinOutput(F0);  // Num Lock
+  setPinOutput(F0);  // Scroll Lock
   setPinOutput(F1);  // Caps Lock
-  setPinOutput(F2);  // Scroll Lock
+  setPinOutput(F2);  // Num Lock
   setPinOutput(F3);  // Ground
 
   writePinLow(F0);
@@ -65,9 +65,9 @@ bool led_update_kb(led_t led_state) {
         // This behavior depends on whether the LED is between the pin
         // and VCC or the pin and GND.
         // writePinLow(F3);
-        writePin(F0, !led_state.num_lock);
+        writePin(F0, !led_state.scroll_lock);
         writePin(F1, !led_state.caps_lock);
-        writePin(F2, !led_state.scroll_lock);
+        writePin(F2, !led_state.num_lock);
 
     }
     return res;
