@@ -18,11 +18,6 @@
 
 void keyboard_pre_init_user(void) {
   // Call the keyboard pre init code.
-
-  // Set our LED pins as output
-//   for (int i=0, i<4, i++) {
-//       setPinOutput(F + i);
-//   }
   setPinOutput(F0);  // Scroll Lock
   setPinOutput(F1);  // Caps Lock
   setPinOutput(F2);  // Num Lock
@@ -61,7 +56,7 @@ bool led_update_kb(led_t led_state) {
     if(res) {
         // writePin sets the pin high for 1 and low for 0.
         // In this example the pins are inverted, setting
-        // it low/0 turns it on, and high/1 turns the LED off.
+        // it low/0 turns the LED on, and high/1 turns the LED off.
         // This behavior depends on whether the LED is between the pin
         // and VCC or the pin and GND.
         // writePinLow(F3);
